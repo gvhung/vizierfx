@@ -10,6 +10,7 @@ This page lists all the things I am planning to do with VizierFX.
   * Add support for drawing:
     * Subgraphs / clusters
     * All arrow / node shapes
+    * Dotted / dashed edges
   * Decouple VizierCanvas class a bit.  In particular, move the drawing stuff to VizierEdge and VizierNode.
   * Split GraphViz parser out from VizierGraph class.
   * Make VizierEdge and VizierNode classes dynamic.

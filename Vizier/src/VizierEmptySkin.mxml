@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="1" height="1">
+	<mx:states>
+		<mx:State name="up" />
+		<mx:State name="down" />
+		<mx:State name="over" />
+		<mx:State name="selectedOver" />
+		<mx:State name="selectedUp" />
+		<mx:State name="selectedDown" />
+		<mx:State name="disabled" />
+		<mx:State name="selectedDisabled" />
+	</mx:states>
+</mx:Canvas>

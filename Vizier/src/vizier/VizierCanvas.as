@@ -30,6 +30,7 @@ package vizier
 	import com.degrafa.geometry.CubicBezier;
 	import com.degrafa.paint.SolidStroke;
 	import com.degrafa.paint.SolidFill;
+	import mx.controls.Alert;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
@@ -322,11 +323,13 @@ package vizier
 	        
 	    public function redrawGraph(input:String):void {
 	  		this._expand_visible_flag = false;
-	  		this._expand_button.visible = false;
-  	    	// set the position to (0,0) to set the size of the scrollbars appropriately
-	    	this._expand_button.x = 0;
-	    	this._expand_button.y = 0;
-
+	  		
+	  		if (this._expand_button != null) {
+	  			this._expand_button.visible = false;
+  	    		// set the position to (0,0) to set the size of the scrollbars appropriately
+	    		this._expand_button.x = 0;
+	    		this._expand_button.y = 0;
+	    	}
 	  		
 	    	var graph:VizierGraph = VizierGraph.parseFromGraphviz(input, _selected_id);
 	    	
@@ -451,7 +454,8 @@ package vizier
 	    	if (_default_params)
 	    		params = _default_params;
 
-			params[this._id_field] = node_id;
+			if (this._id_field != null)
+				params[this._id_field] = node_id;
 	    	
 	    	this._service.addEventListener(FaultEvent.FAULT, _failService);
 	    	this._service.addEventListener(ResultEvent.RESULT, _receiveService);
@@ -461,7 +465,7 @@ package vizier
 	    }
 	    
 	    private function _receiveService(event:ResultEvent):void {
-	    	this.dispatchEvent(new VizierEvent(VizierEvent.GRAPH_SERVICE_RECEIVED));  
+	    	this.dispatchEvent(new VizierEvent(VizierEvent.GRAPH_SERVICE_RECEIVED)); 
 	    	this.redrawGraph(event.result.toString());
 	    }
 	    

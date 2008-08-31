@@ -60,7 +60,7 @@ package vizier
 		
 		public function VizierNode(id:String, properties:Object, default_props:Object)
 		{
-			this._id = id;
+			this._id = this._label = id; // default label to ID
 			
 			for each (var value:String in VizierNode._properties) {
 				if (properties[value] != null)
@@ -98,7 +98,7 @@ package vizier
 		public function get id():String { return this._id; }
 		
 		[Bindable]
-		public function set label(value:String):void { this._label = value.replace(/\\n/g, ' '); }
+		public function set label(value:String):void { if (value != null) this._label = value.replace(/\\n/g, ' '); }
 		public function get label():String { return this._label; }
 		
 		public function set color(value:String):void { this._color = VizierColorList.translateColorName(value); }

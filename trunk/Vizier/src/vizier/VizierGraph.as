@@ -26,7 +26,6 @@
 package vizier {
 	
 	import mx.utils.StringUtil;
-	import mx.controls.Alert;
 	
 	public class VizierGraph
 	{
@@ -87,8 +86,8 @@ package vizier {
 	    		var graph_regex:RegExp = /^graph \[(.+)\]$/;
 	    		var allnode_regex:RegExp = /^node \[(.+)\]$/;
 	    		var alledge_regex:RegExp = /^edge \[(.+)\]$/;
-	    		var node_regex:RegExp = /^(\w+) \[(.+)\]$/;
-	    		var edge_regex:RegExp = /^(\w+) -> (\w+) \[(.+)\]$/;
+	    		var node_regex:RegExp = /^(\w+|\"\S+\") \[(.+)\]$/;
+	    		var edge_regex:RegExp = /^(\w+|\"\S+\") -> (\w+|\"\S+\") \[(.+)\]$/;
 	    		
 	    		var result:Array = new Array();
 	    		
@@ -124,6 +123,7 @@ package vizier {
 	    		// node
 	    		else if (result = node_regex.exec(line)) { 
 	    			var id:String = result[1];
+	    			id = id.replace(/^\"(.*)\"$/, '$1');
 	    			
 	    			// parse the property section
 	    			var node_props:Object = _parseProperties(result[2]);		
@@ -137,8 +137,13 @@ package vizier {
 	    		
 	    		// edge
 	    		else if (result = edge_regex.exec(line)) {
+	    			var out_id:String = result[1];
+	    			var in_id:String = result[2];
+	    			out_id.replace(/^\"(.*)\"$/, '$1');
+	    			in_id.replace(/^\"(.*)\"$/, '$1');
+	    			
 	    			var edge_props:Object = _parseProperties(result[3]);
-	    			var edge:VizierEdge = new VizierEdge(result[1], result[2], edge_props, default_edge);
+	    			var edge:VizierEdge = new VizierEdge(out_id, in_id, edge_props, default_edge);
 	    			
 	    			graph.addEdge(edge);
 	    		}

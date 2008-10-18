@@ -28,9 +28,8 @@ package vizier
 	import com.degrafa.core.IGraphicsFill;
 	import com.degrafa.core.IGraphicsStroke;
 	import com.degrafa.geometry.CubicBezier;
-	import com.degrafa.paint.SolidStroke;
 	import com.degrafa.paint.SolidFill;
-	import mx.controls.Alert;
+	import com.degrafa.paint.SolidStroke;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
@@ -77,6 +76,8 @@ package vizier
 		private var _selectfill:IGraphicsFill;
 		private var _highlightfill:IGraphicsFill;
 		
+		private var _invert:Boolean;
+		
 		function VizierCanvas() {
 			super();
 			this.clipContent = false;
@@ -103,6 +104,10 @@ package vizier
 		}
 		public function get expandButton():Button {
 			return this._expand_button;
+		}
+		
+		public function set invert(value:Boolean):void {
+			this._invert = value;
 		}
 		
 		[Inspectable]

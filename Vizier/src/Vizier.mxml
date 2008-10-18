@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
-	
+<mx:Application xmlns:vizier="vizier.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" applicationComplete="testcanvas.sendService('0');" viewSourceURL="srcview/index.html">
+	<vizier:VizierCanvas service="{test1}" id="testcanvas">
+		
+	</vizier:VizierCanvas>
+	<mx:HTTPService resultFormat="text" url="http://markandrewgoetz.com/vizierfx/files/test1/test1.dot" id="test1" />
 </mx:Application>

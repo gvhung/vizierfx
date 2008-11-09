@@ -23,11 +23,11 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package vizier.nodeshapes
+package src.vizier.nodeshapes
 {
 	import flash.display.Graphics;
 	import flash.geom.Rectangle;
-	import vizier.VizierNode;
+	import src.vizier.VizierNode;
 	
 	public class Diamond extends AbstractNodeShape
 	{

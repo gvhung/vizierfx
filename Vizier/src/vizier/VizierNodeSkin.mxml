@@ -2,7 +2,7 @@
 <GraphicBorderSkin xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="http://www.degrafa.com/2007" added="initListeners()">
      <mx:Script>
         <![CDATA[
-            import vizier.nodeshapes.*;
+            import src.vizier.nodeshapes.*;
             import flash.events.Event;
             
             [Bindable]

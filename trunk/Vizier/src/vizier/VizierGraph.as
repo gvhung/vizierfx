@@ -23,7 +23,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package vizier {
+package src.vizier {
 	
 	import mx.utils.StringUtil;
 	

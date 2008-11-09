@@ -23,7 +23,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package vizier
+package src.vizier
 {
 	public class VizierNode
 	{
@@ -99,7 +99,11 @@ package vizier
 		
 		[Bindable]
 		public function set label(value:String):void { if (value != null) this._label = value.replace(/\\n/g, ' '); }
-		public function get label():String { return this._label; }
+		public function get label():String {
+			if (this._label == '\\N')
+				return this._id;
+			return this._label;
+		}
 		
 		public function set color(value:String):void { this._color = VizierColorList.translateColorName(value); }
 		public function get color():String { return this._color; }

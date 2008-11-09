@@ -23,7 +23,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
  
-package vizier
+package src.vizier
 {
 	import com.degrafa.core.IGraphicsFill;
 	import com.degrafa.core.IGraphicsStroke;

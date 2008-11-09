@@ -1,4 +1,4 @@
-package components
+package src.components
 {
 import flash.text.TextLineMetrics;
 import mx.controls.RadioButton;

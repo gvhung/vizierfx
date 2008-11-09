@@ -23,7 +23,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package vizier
+package src.vizier
 {
 	public class VizierColorList
 	{

@@ -23,14 +23,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package vizier.nodeshapes
+package src.vizier.nodeshapes
 {
 	import com.degrafa.geometry.Ellipse;
 	
 	import flash.display.Graphics;
 	import flash.geom.Rectangle;
 	
-	import vizier.VizierNode;
+	import src.vizier.VizierNode;
 
 	public class NodeEllipse extends AbstractNodeShape
 	{

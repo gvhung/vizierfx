@@ -1,4 +1,4 @@
-package components
+package src.components
 {
 import mx.core.UITextField;
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom:MultilineRadioButton skin="com.vizierfx.VizierNodeSkin" xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:custom="com.vizierfx.components.*" doubleClickEnabled="true" fontFamily="{data.fontname}"
+	fontSize="{data.fontsize}" color="{StyleManager.getColorName(data.fontcolor)}" textAlign="center"
+	icon="com.vizierfx.VizierEmptySkin" label="{data.label}" width="{data.width}" height="{data.height}"
+	x="{data.x}" y="{data.y}" click="launchURL();">
+	<mx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			import flash.events.MouseEvent;
+			import com.degrafa.core.IGraphicsStroke;
+			import com.degrafa.core.IGraphicsFill;
+			import mx.styles.StyleManager;
+			
+			public var selectstroke:IGraphicsStroke;
+			public var highlightstroke:IGraphicsStroke;
+			public var selectfill:IGraphicsFill;
+			public var highlightfill:IGraphicsFill;
+			
+			private function launchURL():void {
+				if (this.data.url != null) {
+					navigateToURL(new URLRequest(this.data.url), '_blank');
+				}
+			}
+		]]>
+	</mx:Script>
+</custom:MultilineRadioButton>

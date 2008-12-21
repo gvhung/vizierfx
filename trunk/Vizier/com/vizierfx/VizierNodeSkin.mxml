@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GraphicBorderSkin xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="http://www.degrafa.com/2007" added="initListeners()">
+     <mx:Script>
+        <![CDATA[
+            import com.vizierfx.nodeshapes.*;
+            import flash.events.Event;
+            
+            [Bindable]
+            private var awidth:Number=0;
+
+            [Bindable]
+            private var aheight:Number=0;
+            
+            private var shape:AbstractNodeShape;
+            
+            override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void{
+                super.updateDisplayList(unscaledWidth, unscaledHeight);
+                awidth = unscaledWidth;
+                aheight = unscaledHeight;
+                
+                var component:VizierNodeComponent = this.parent as VizierNodeComponent;
+                var node:VizierNode = component.data as VizierNode;
+                                
+                switch (node.shape) {
+                	case 'ellipse':
+                	case 'doublecircle':
+                		shape = new NodeEllipse(node);
+                		break;
+                	case 'box':
+                		shape = new NodeRectangle(node);
+                		break;
+                	case 'parallelogram':
+                		shape = new Parallelogram(node);
+                		break;
+                	case 'invtriangle':
+                		shape = new Triangle(node);
+                		break;
+                	case 'triangle':
+						shape = new InvertedTriangle(node);
+                		break;
+                	case 'diamond':
+                		shape = new Diamond(node);
+                		break;
+                	case 'invtrapezium':
+                		shape = new Trapezium(node);
+                		break;
+                	case 'trapezium':
+                		shape = new InvertedTrapezium(node);
+                		break;
+                	case 'hexagon':
+                		shape = new Hexagon(node);
+                		break;
+                	case 'octagon':
+                	case 'doubleoctagon':
+                	case 'tripleoctagon':
+                		shape = new Octagon(node);
+                		break;
+                }
+                
+                this.redraw();
+                return;
+            }
+            
+            protected function initListeners():void {
+            	parent.addEventListener(MouseEvent.MOUSE_OVER, highlight);
+            	parent.addEventListener(MouseEvent.MOUSE_OUT, redraw);
+            	parent.addEventListener(Event.CHANGE, redraw);
+            }
+            
+            protected function highlight(event:MouseEvent):void {
+        		var node:VizierNodeComponent = this.parent as VizierNodeComponent; 
+        		
+        		if (node.highlightstroke != null)
+        			shape.stroke = node.highlightstroke;
+        			
+        		if (node.highlightfill != null)
+        			shape.fill = node.highlightfill;
+        			
+        		shape.draw(this.graphics, null);
+            }
+            
+            public function redraw(event:Event = null):void {
+            	var node:VizierNodeComponent = this.parent as VizierNodeComponent; 
+  
+      			normalstroke.weight = 1;
+    			normalstroke.color = node.data.color;
+    			normalfill.color = node.data.fillcolor;
+    			
+    			shape.stroke = normalstroke;
+    			shape.fill = normalfill;
+
+        		if (node.selected) {
+        			if (node.selectstroke != null)
+        				shape.stroke = node.selectstroke;
+        			if (node.selectfill != null)
+        				shape.fill = node.selectfill;
+        		}
+        		shape.draw(this.graphics, null);
+            }
+		]]>
+    </mx:Script>
+                    
+    <fills>
+        <SolidFill id="normalfill" />
+    </fills>
+
+    <strokes>
+        <SolidStroke id="normalstroke" />
+    </strokes>
+
+</GraphicBorderSkin>

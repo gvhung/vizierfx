@@ -204,7 +204,7 @@ package com.vizierfx
 	    		this._expand_button.y = 0;
 	    	}
 	  		
-	    	var graph:VizierGraph = VizierGraph.parseFromGraphviz(input, _selected_id);
+	    	var graph:VizierGraph = VizierParser.parseFromGraphviz(input, _selected_id);
 	    	
 	    	this.width = graph.width;
 	    	this.height = graph.height;

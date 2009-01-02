@@ -102,10 +102,14 @@ package com.vizierfx
 		public function get id():String { return this._id; }
 		
 		[Bindable]
-		public function set label(value:String):void { if (value != null) this._label = value.replace(/\\n/g, ' '); }
+		public function set label(value:String):void {
+			if (value != null)
+				this._label = value.replace(/\\n/g, "\n");
+		}
+		
 		public function get label():String {
 			if (this._label == '\\N')
-				return this._id;
+				return this._id.replace(/\\n/g, "\n");
 			return this._label;
 		}
 		

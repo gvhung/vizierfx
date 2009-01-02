@@ -26,8 +26,8 @@ public class MultilineRadioButton extends RadioButton
 
 		super.createChildren();
 
-		textField.multiline = true;
-		textField.wordWrap = true;
+		textField.multiline = false;
+		textField.wordWrap = false;
 	}
 
 	override protected function measure():void

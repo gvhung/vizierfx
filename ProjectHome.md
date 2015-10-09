@@ -1,0 +1,3 @@
+VizierFX is a Flex library for drawing network graphs.  The graphs are laid out using GraphViz on the server side, then passed to VizierFX to perform the rendering.  The library also provides the ability to run ActionScript code in response to events on the graph, such as mousing over a node or clicking on it.
+
+For more details, check out the VizierFX site at http://www.markandrewgoetz.com/vizierfx/.
